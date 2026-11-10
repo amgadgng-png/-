@@ -182,3 +182,17 @@
                     <div class="flex gap-2">
                         <input type="text" id="coupon-input" placeholder="كود الخصم (مثال: BIOHACK20)" class="flex-1 bg-slate-900 text-xs px-3 py-2.5 rounded-xl border border-slate-700 text-white uppercase focus:outline-none focus:border-neonCyan">
                         <button onclick="applyCoupon()" class="bg-slate-800 hover:bg-slate-700 text-neonCyan text-xs font-bold px-4 rounded-xl border border-slate-700 transition
+                            // دالة البحث الذكي والسلس
+        function searchProducts() {
+            let query = document.getElementById('searchInput').value.toLowerCase();
+            let filtered = products.filter(p => p.name.toLowerCase().includes(query));
+            
+            document.getElementById('productsGrid').innerHTML = filtered.length ? filtered.map(p => `
+                <div class="card">
+                    <img src="${p.img}" alt="${p.name}">
+                    <h4>${p.name}</h4>
+                    <p>${p.price.toLocaleString()} ر.ي</p>
+                    <button class="btn" onclick="addToCart(${p.id})"><i class="fa-solid fa-cart-plus"></i> إضافة للسلة</button>
+                </div>
+            `).join('') : `<p style="text-align:center; grid-column: span 2; color:#888; padding:20px;">عذراً، لا يوجد منتج بهذا الاسم 🔍</p>`;
+        }
