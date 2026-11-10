@@ -23,12 +23,19 @@
                     },
                     fontFamily: {
                         sans: ['Cairo', 'sans-serif'],
+                        
                     }
                 }
             }
         }
     </script>
     <style>
+        /* شريط البحث الذكي */
+        .search-box { padding: 10px 15px; background: #161616; border-bottom: 1px solid #333; display: flex; justify-content: center; }
+        .search-container { position: relative; width: 100%; max-width: 400px; }
+        .search-input { width: 100%; background: #222; border: 1px solid #444; color: #fff; padding: 8px 12px 8px 35px; border-radius: 20px; font-size: 13px; outline: none; transition: 0.3s; }
+        .search-input:focus { border-color: #2ecc71; box-shadow: 0 0 8px rgba(46, 204, 113, 0.3); }
+        .search-container i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #888; font-size: 13px; margin-left: 0; }
         body { font-family: 'Cairo', sans-serif; background-color: #06080d; color: #f8fafc; }
         .glass-nav { background: rgba(6, 8, 13, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
         .neon-glow { box-shadow: 0 0 20px rgba(0, 242, 254, 0.25); }
@@ -40,6 +47,13 @@
     </style>
 </head>
 <body class="bg-darkBg text-gray-100 min-h-screen flex flex-col selection:bg-neonCyan selection:text-black">
+    <!-- شريط البحث الذكي -->
+    <div class="search-box">
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن منتج أو مكمل..." oninput="searchProducts()">
+        </div>
+    </div>
 
     <!-- شريط الإعلانات العلوي والعداد التنازلي -->
     <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-xs sm:text-sm py-2 px-4 text-center font-semibold tracking-wide border-b border-blue-800/50 flex flex-wrap justify-center items-center gap-4">
