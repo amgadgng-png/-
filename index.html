@@ -3,170 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر المكملات وشي إن</title>
-    
-    <!-- مكتبة الأيقونات -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- قسم التصميم (CSS) ويشمل تنسيق شريط البحث الجديد -->
+    <title>متجر المكملات العالمي | iHerb Style</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-        body { background: #121212; color: #fff; padding-bottom: 20px; }
-        
-        i { margin-left: 5px; }
-
-        /* الشريط العلوي */
-        .nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: #1e1e1e; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 10; }
-        .nav h1 { font-size: 15px; }
-        .nav button { background: #2a2a2a; color: #fff; border: 1px solid #444; padding: 5px 8px; border-radius: 5px; cursor: pointer; font-size: 12px; }
-
-        /* زر السلة */
-        .cart-btn { background: #2ecc71; padding: 6px 12px; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 13px; }
-
-        /* تصميم شريط البحث الذكي والأنبق */
-        .search-box { padding: 10px 15px; background: #161616; border-bottom: 1px solid #333; display: flex; justify-content: center; }
-        .search-container { position: relative; width: 100%; max-width: 400px; }
-        .search-input { width: 100%; background: #222; border: 1px solid #444; color: #fff; padding: 8px 12px 8px 35px; border-radius: 20px; font-size: 13px; outline: none; transition: 0.3s; }
-        .search-input:focus { border-color: #2ecc71; box-shadow: 0 0 8px rgba(46, 204, 113, 0.3); }
-        .search-container i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #888; font-size: 13px; margin-left: 0; }
-
-        /* شبكة المنتجات */
-        .grid { display: grid; gap: 10px; padding: 15px; }
-        .cols-2 { grid-template-columns: repeat(2, 1fr); }
-        .cols-4 { grid-template-columns: repeat(4, 1fr); }
-
-        /* بطاقة المنتج */
-        .card { background: #1e1e1e; padding: 10px; border-radius: 8px; border: 1px solid #2a2a2a; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
-        .card img { width: 100%; border-radius: 6px; height: 130px; object-fit: cover; }
-        .card h4 { font-size: 13px; margin: 8px 0 4px; }
-        .card p { color: #2ecc71; font-weight: bold; font-size: 13px; margin-bottom: 6px; }
-        .btn { background: #2ecc71; color: #fff; border: none; padding: 8px; width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer; }
-
-        /* نافذة السلة */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 100; }
-        .modal-box { background: #1e1e1e; padding: 20px; border-radius: 10px; width: 90%; max-width: 350px; position: relative; }
-        .close { position: absolute; left: 15px; top: 15px; cursor: pointer; font-size: 18px; color: #aaa; }
-        .modal-box ul { list-style: none; margin: 15px 0; max-height: 200px; overflow-y: auto; }
-        .modal-box li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #333; font-size: 13px; }
-
-        /* أزرار السلة والواتساب */
-        .wa-btn { background: #25D366; color: #fff; border: none; padding: 10px; width: 100%; border-radius: 5px; margin: 10px 0 5px; font-weight: bold; cursor: pointer; }
-        .del-btn { background: #e74c3c; color: #fff; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; width: 100%; }
+        :root {
+            --primary-color: #4CAF50; /* الأخضر الحيوي المميز للمكملات */
+            --secondary-color: #FF9800; /* البرتقالي الجاذب للانتباه */
+            --dark-color: #212121;
+            --light-bg: #F5F5F5;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+        }
+        .hero {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .hero h1 { margin: 0 0 10px 0; font-size: 36px; }
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .cat-btn {
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .cat-btn:hover { background: var(--primary-color); color: white; }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-img {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-weight: bold;
+        }
+        .product-info { padding: 15px; text-align: center; }
+        .product-title { font-size: 18px; font-weight: bold; margin: 10px 0; color: var(--dark-color); }
+        .product-price { color: var(--secondary-color); font-size: 20px; font-weight: bold; margin-bottom: 15px; }
+        .whatsapp-btn {
+            display: block;
+            background-color: #25D366;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 0 0 12px 12px;
+            transition: 0.3s;
+        }
+        .whatsapp-btn:hover { background-color: #128C7E; }
     </style>
 </head>
 <body>
 
-    <!-- الشريط العلوي -->
-    <header class="nav">
-        <h1>متجر المكملات وشي إن 🛍️</h1>
-        <div>
-            <button onclick="setLayout(2)"><i class="fa-solid fa-border-all"></i> 2x2</button>
-            <button onclick="setLayout(4)"><i class="fa-solid fa-table-cells"></i> 4x4</button>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">🌿 المكمل الذكي</a>
+            <div class="search-bar">
+                <input type="text" placeholder="ابحث عن مكملك الغذائي (فيتامينات، بروتينات...)...">
+            </div>
         </div>
-        <div onclick="toggleCart()" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i> السلة (<span id="cartCount">0</span>)</div>
     </header>
 
-    <!-- شريط البحث الذكي (في الواجهة تحت الشريط العلوي مباشرة) -->
-    <div class="search-box">
-        <div class="search-container">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن منتج أو مكمل..." oninput="searchProducts()">
+    <div class="hero">
+        <h1>صحتك تبدأ من هنا</h1>
+        <p>أكثر من 200 مكمل غذائي أصلي 100% مستوحى من الجودة العالمية</p>
+    </div>
+
+    <div class="categories">
+        <a href="#" class="cat-btn">كل المنتجات</a>
+        <a href="#" class="cat-btn">الفيتامينات الأساسية</a>
+        <a href="#" class="cat-btn">المكملات الرياضية</a>
+        <a href="#" class="cat-btn">صحة المرأة والجمال</a>
+        <a href="#" class="cat-btn">المستخلصات العشبية</a>
+    </div>
+
+    <!-- نموذج لعرض المنتجات الذكية -->
+    <div class="products-grid">
+        <!-- منتج 1 -->
+        <div class="product-card">
+            <div class="product-img" style="background-image: url('https://unsplash.com'); background-size: cover;"></div>
+            <div class="product-info">
+                <div class="product-title">أوميغا 3 زيت السمك عالي النقاء (100 كبسولة)</div>
+                <div class="product-price">19.99 $</div>
+            </div>
+            <!-- استبدل رقم الهاتف هنا برقمك الفعلي -->
+            <a href="https://wa.me" target="_blank" class="whatsapp-btn">اطلب عبر الواتساب 💬</a>
+        </div>
+
+        <!-- منتج 2 -->
+        <div class="product-card">
+            <div class="product-img" style="background-image: url('https://unsplash.com'); background-size: cover;"></div>
+            <div class="product-info">
+                <div class="product-title">فيتامين د3 بتركيز 5000 وحدة دولية</div>
+                <div class="product-price">12.50 $</div>
+            </div>
+            <a href="https://wa.me" target="_blank" class="whatsapp-btn">اطلب عبر الواتساب 💬</a>
+        </div>
+
+        <!-- منتج 3 -->
+        <div class="product-card">
+            <div class="product-img" style="background-image: url('https://unsplash.com'); background-size: cover;"></div>
+            <div class="product-info">
+                <div class="product-title">واي بروتين معزول لنحت العضلات (2 كيلو)</div>
+                <div class="product-price">55.00 $</div>
+            </div>
+            <a href="https://wa.me" target="_blank" class="whatsapp-btn">اطلب عبر الواتساب 💬</a>
         </div>
     </div>
 
-    <!-- شبكة عرض المنتجات -->
-    <main id="productsGrid" class="grid cols-2"></main>
-
-    <!-- نافذة السلة المنبثقة -->
-    <div id="cartModal" class="modal">
-        <div class="modal-box">
-            <span class="close" onclick="toggleCart()">✕</span>
-            <h2>عربة التسوق 🛒</h2>
-            <ul id="cartList"></ul>
-            <p style="margin-top:10px;">الإجمالي: <strong id="cartTotal">0</strong> ر.ي</p>
-            <button onclick="sendWA()" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب</button>
-            <button onclick="clearCart()" class="del-btn">إفراغ السلة</button>
-        </div>
-    </div>
-
-    <!-- قسم المحرك البرمجي (JavaScript) ويشمل دالة البحث الفوري -->
-    <script>
-        const products = [
-            { id: 1, name: "Repair Gold (مكمل)", price: 6796, img: "https://via.placeholder.com/150" },
-            { id: 2, name: "Whey Protein (مكمل)", price: 12000, img: "https://via.placeholder.com/150" },
-            { id: 3, name: "فستان أنيق (شي إن)", price: 9500, img: "https://via.placeholder.com/150" },
-            { id: 4, name: "حقيبة نسائية (شي إن)", price: 7200, img: "https://via.placeholder.com/150" }
-        ];
-
-        let cart = [];
-
-        function render() {
-            document.getElementById('productsGrid').innerHTML = products.map(p => `
-                <div class="card">
-                    <img src="${p.img}" alt="${p.name}">
-                    <h4>${p.name}</h4>
-                    <p>${p.price.toLocaleString()} ر.ي</p>
-                    <button class="btn" onclick="addToCart(${p.id})"><i class="fa-solid fa-cart-plus"></i> إضافة للسلة</button>
-                </div>
-            `).join('');
-        }
-
-        /* دالة البحث الذكي والسلس */
-        function searchProducts() {
-            let query = document.getElementById('searchInput').value.toLowerCase();
-            let filtered = products.filter(p => p.name.toLowerCase().includes(query));
-            
-            document.getElementById('productsGrid').innerHTML = filtered.length ? filtered.map(p => `
-                <div class="card">
-                    <img src="${p.img}" alt="${p.name}">
-                    <h4>${p.name}</h4>
-                    <p>${p.price.toLocaleString()} ر.ي</p>
-                    <button class="btn" onclick="addToCart(${p.id})"><i class="fa-solid fa-cart-plus"></i> إضافة للسلة</button>
-                </div>
-            `).join('') : `<p style="text-align:center; grid-column: span 2; color:#888; padding:20px;">عذراً، لا يوجد منتج بهذا الاسم 🔍</p>`;
-        }
-
-        function addToCart(id) {
-            let item = cart.find(i => i.id === id);
-            item ? item.qty++ : cart.push({...products.find(p => p.id === id), qty: 1});
-            updateUI();
-        }
-
-        function updateUI() {
-            document.getElementById('cartCount').innerText = cart.reduce((s, i) => s + i.qty, 0);
-            document.getElementById('cartList').innerHTML = cart.map(i => `
-                <li>
-                    <span>${i.name} (x${i.qty})</span>
-                    <span>${(i.price * i.qty).toLocaleString()} ر.ي</span>
-                </li>
-            `).join('');
-            document.getElementById('cartTotal').innerText = cart.reduce((s, i) => s + (i.price * i.qty), 0).toLocaleString();
-        }
-
-        function toggleCart() {
-            let m = document.getElementById('cartModal');
-            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function clearCart() { 
-            cart = []; 
-            updateUI(); 
-        }
-
-        function setLayout(c) { 
-            document.getElementById('productsGrid').className = `grid cols-${c}`; 
-        }
-
-        function sendWA() {
-            if (!cart.length) return alert("السلة فارغة!");
-            let phone = "967700000000"; 
-            let msg = "مرحباً، أرغب في طلب المنتجات التالية:\n\n" + 
-                      cart.map(i => `• ${i.name} (الكمية: ${i.qty})`).join('\n') + 
-                      `\n\n💰 الإجمالي الكلي: ${document.getElementById('cartTotal').innerText} ر.ي`;
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`);
-        }
-
-        render();
-    </script>
 </body>
 </html>
