@@ -3,51 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUTRIVEX Elite | متجر المكملات الغذائية الفاخر</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
+    <title>متجر المكملات وشي إن</title>
+    
+    <!-- مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts (Cairo & Tajawal) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#06080d',
-                        cardBg: '#0f172a',
-                        neonCyan: '#00f2fe',
-                        neonPurple: '#4facfe',
-                        accentGold: '#f59e0b'
-                    },
-                    fontFamily: {
-                        sans: ['Cairo', 'sans-serif'],
-                        
-                    }
-                }
-            }
-        }
-    </script>
+
+    <!-- قسم التصميم (CSS) ويشمل تنسيق شريط البحث الجديد -->
     <style>
-        /* شريط البحث الذكي */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { background: #121212; color: #fff; padding-bottom: 20px; }
+        
+        i { margin-left: 5px; }
+
+        /* الشريط العلوي */
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: #1e1e1e; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 10; }
+        .nav h1 { font-size: 15px; }
+        .nav button { background: #2a2a2a; color: #fff; border: 1px solid #444; padding: 5px 8px; border-radius: 5px; cursor: pointer; font-size: 12px; }
+
+        /* زر السلة */
+        .cart-btn { background: #2ecc71; padding: 6px 12px; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 13px; }
+
+        /* تصميم شريط البحث الذكي والأنبق */
         .search-box { padding: 10px 15px; background: #161616; border-bottom: 1px solid #333; display: flex; justify-content: center; }
         .search-container { position: relative; width: 100%; max-width: 400px; }
         .search-input { width: 100%; background: #222; border: 1px solid #444; color: #fff; padding: 8px 12px 8px 35px; border-radius: 20px; font-size: 13px; outline: none; transition: 0.3s; }
         .search-input:focus { border-color: #2ecc71; box-shadow: 0 0 8px rgba(46, 204, 113, 0.3); }
         .search-container i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #888; font-size: 13px; margin-left: 0; }
-        body { font-family: 'Cairo', sans-serif; background-color: #06080d; color: #f8fafc; }
-        .glass-nav { background: rgba(6, 8, 13, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
-        .neon-glow { box-shadow: 0 0 20px rgba(0, 242, 254, 0.25); }
-        .neon-border { border: 1px solid rgba(0, 242, 254, 0.3); }
-        .neon-border:hover { border-color: rgba(0, 242, 254, 0.8); box-shadow: 0 0 15px rgba(0, 242, 254, 0.4); }
-        /* إخفاء شريط التمرير */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* شبكة المنتجات */
+        .grid { display: grid; gap: 10px; padding: 15px; }
+        .cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+        /* بطاقة المنتج */
+        .card { background: #1e1e1e; padding: 10px; border-radius: 8px; border: 1px solid #2a2a2a; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+        .card img { width: 100%; border-radius: 6px; height: 130px; object-fit: cover; }
+        .card h4 { font-size: 13px; margin: 8px 0 4px; }
+        .card p { color: #2ecc71; font-weight: bold; font-size: 13px; margin-bottom: 6px; }
+        .btn { background: #2ecc71; color: #fff; border: none; padding: 8px; width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer; }
+
+        /* نافذة السلة */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 100; }
+        .modal-box { background: #1e1e1e; padding: 20px; border-radius: 10px; width: 90%; max-width: 350px; position: relative; }
+        .close { position: absolute; left: 15px; top: 15px; cursor: pointer; font-size: 18px; color: #aaa; }
+        .modal-box ul { list-style: none; margin: 15px 0; max-height: 200px; overflow-y: auto; }
+        .modal-box li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #333; font-size: 13px; }
+
+        /* أزرار السلة والواتساب */
+        .wa-btn { background: #25D366; color: #fff; border: none; padding: 10px; width: 100%; border-radius: 5px; margin: 10px 0 5px; font-weight: bold; cursor: pointer; }
+        .del-btn { background: #e74c3c; color: #fff; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; width: 100%; }
     </style>
 </head>
-<body class="bg-darkBg text-gray-100 min-h-screen flex flex-col selection:bg-neonCyan selection:text-black">
-    <!-- شريط البحث الذكي -->
+<body>
+
+    <!-- الشريط العلوي -->
+    <header class="nav">
+        <h1>متجر المكملات وشي إن 🛍️</h1>
+        <div>
+            <button onclick="setLayout(2)"><i class="fa-solid fa-border-all"></i> 2x2</button>
+            <button onclick="setLayout(4)"><i class="fa-solid fa-table-cells"></i> 4x4</button>
+        </div>
+        <div onclick="toggleCart()" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i> السلة (<span id="cartCount">0</span>)</div>
+    </header>
+
+    <!-- شريط البحث الذكي (في الواجهة تحت الشريط العلوي مباشرة) -->
     <div class="search-box">
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -55,135 +74,44 @@
         </div>
     </div>
 
-    <!-- شريط الإعلانات العلوي والعداد التنازلي -->
-    <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-xs sm:text-sm py-2 px-4 text-center font-semibold tracking-wide border-b border-blue-800/50 flex flex-wrap justify-center items-center gap-4">
-        <span><i class="fa-solid fa-bolt text-neonCyan ml-1"></i> خصم حصري 20% على جميع المنتجات باستخدام الكود: <span class="text-neonCyan font-bold">BIOHACK20</span></span>
-        <span class="bg-black/30 px-3 py-1 rounded-full text-neonCyan" id="countdown-timer">ينتهي العرض خلال: 05س 42د 18ث</span>
+    <!-- شبكة عرض المنتجات -->
+    <main id="productsGrid" class="grid cols-2"></main>
+
+    <!-- نافذة السلة المنبثقة -->
+    <div id="cartModal" class="modal">
+        <div class="modal-box">
+            <span class="close" onclick="toggleCart()">✕</span>
+            <h2>عربة التسوق 🛒</h2>
+            <ul id="cartList"></ul>
+            <p style="margin-top:10px;">الإجمالي: <strong id="cartTotal">0</strong> ر.ي</p>
+            <button onclick="sendWA()" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> طلب عبر الواتساب</button>
+            <button onclick="clearCart()" class="del-btn">إفراغ السلة</button>
+        </div>
     </div>
 
-    <!-- الهيدر الرئيسي (Glassmorphic Navigation) -->
-    <header class="sticky top-0 z-40 glass-nav border-b border-slate-800/80 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-            
-            <!-- الشعار -->
-            <div class="flex items-center gap-3 cursor-pointer" onclick="filterCategory('all')">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center neon-glow">
-                    <i class="fa-solid fa-dna text-black text-xl font-black"></i>
+    <!-- قسم المحرك البرمجي (JavaScript) ويشمل دالة البحث الفوري -->
+    <script>
+        const products = [
+            { id: 1, name: "Repair Gold (مكمل)", price: 6796, img: "https://via.placeholder.com/150" },
+            { id: 2, name: "Whey Protein (مكمل)", price: 12000, img: "https://via.placeholder.com/150" },
+            { id: 3, name: "فستان أنيق (شي إن)", price: 9500, img: "https://via.placeholder.com/150" },
+            { id: 4, name: "حقيبة نسائية (شي إن)", price: 7200, img: "https://via.placeholder.com/150" }
+        ];
+
+        let cart = [];
+
+        function render() {
+            document.getElementById('productsGrid').innerHTML = products.map(p => `
+                <div class="card">
+                    <img src="${p.img}" alt="${p.name}">
+                    <h4>${p.name}</h4>
+                    <p>${p.price.toLocaleString()} ر.ي</p>
+                    <button class="btn" onclick="addToCart(${p.id})"><i class="fa-solid fa-cart-plus"></i> إضافة للسلة</button>
                 </div>
-                <div>
-                    <span class="text-xl sm:text-2xl font-black tracking-wider bg-gradient-to-r from-white via-cyan-200 to-neonCyan bg-clip-text text-transparent">NUTRIVEX</span>
-                    <span class="block text-[10px] tracking-widest text-cyan-400 font-bold uppercase">Elite Supplements</span>
-                </div>
-            </div>
+            `).join('');
+        }
 
-            <!-- شريط البحث السريع -->
-            <div class="hidden md:flex flex-1 max-w-md relative">
-                <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="ابحث عن واي بروتين، كرياتين، فيتامين D..." class="w-full bg-slate-900/90 text-sm text-gray-200 placeholder-gray-400 px-4 py-2.5 pr-11 rounded-xl border border-slate-700 focus:outline-none focus:border-neonCyan transition-all">
-                <i class="fa-solid fa-magnifying-glass absolute right-4 top-3.5 text-gray-400"></i>
-            </div>
-
-            <!-- أجراءات الهيدر (المقارنة، السلة، الواتساب) -->
-            <div class="flex items-center gap-3">
-                <!-- زر المقارنة -->
-                <button onclick="openComparisonModal()" class="relative p-2.5 rounded-xl bg-slate-900/80 border border-slate-700 hover:border-cyan-400 text-gray-300 hover:text-cyan-400 transition-all" title="مقارنة المنتجات">
-                    <i class="fa-solid fa-scale-balanced text-lg"></i>
-                    <span id="comparison-badge" class="absolute -top-1.5 -left-1.5 bg-neonCyan text-black text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-lg hidden">0</span>
-                </button>
-
-                <!-- زر السلة -->
-                <button onclick="toggleCart()" class="relative flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-bold px-4 py-2.5 rounded-xl shadow-lg transition-all transform hover:scale-105">
-                    <i class="fa-solid fa-bag-shopping text-lg"></i>
-                    <span class="hidden sm:inline">السلة</span>
-                    <span id="cart-count" class="bg-black text-cyan-400 text-xs font-black px-2 py-0.5 rounded-full">0</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- القوائم المنسدلة (Mega Menu Categories) -->
-        <div class="bg-slate-950/80 border-t border-slate-900 py-2.5 px-4 overflow-x-auto no-scrollbar">
-            <div class="max-w-7xl mx-auto flex items-center gap-2 sm:gap-4 min-w-max">
-                <button onclick="filterCategory('all')" id="cat-btn-all" class="category-btn px-4 py-1.5 rounded-lg text-sm font-bold bg-neonCyan text-black transition-all">جميع المنتجات</button>
-                <button onclick="filterCategory('sports')" id="cat-btn-sports" class="category-btn px-4 py-1.5 rounded-lg text-sm font-semibold bg-slate-900 text-gray-300 hover:bg-slate-800 hover:text-white transition-all"><i class="fa-solid fa-dumbbell ml-1.5 text-cyan-400"></i> الأداء الرياضي والعضلات</button>
-                <button onclick="filterCategory('vitamins')" id="cat-btn-vitamins" class="category-btn px-4 py-1.5 rounded-lg text-sm font-semibold bg-slate-900 text-gray-300 hover:bg-slate-800 hover:text-white transition-all"><i class="fa-solid fa-pills ml-1.5 text-cyan-400"></i> الفيتامينات والمعادن</button>
-                <button onclick="filterCategory('longevity')" id="cat-btn-longevity" class="category-btn px-4 py-1.5 rounded-lg text-sm font-semibold bg-slate-900 text-gray-300 hover:bg-slate-800 hover:text-white transition-all"><i class="fa-solid fa-heart-pulse ml-1.5 text-cyan-400"></i> الصحة العامة وطول العمر</button>
-                <button onclick="filterCategory('brain')" id="cat-btn-brain" class="category-btn px-4 py-1.5 rounded-lg text-sm font-semibold bg-slate-900 text-gray-300 hover:bg-slate-800 hover:text-white transition-all"><i class="fa-solid fa-brain ml-1.5 text-cyan-400"></i> التركيز وصحة الدماغ</button>
-                <button onclick="filterCategory('fatburner')" id="cat-btn-fatburner" class="category-btn px-4 py-1.5 rounded-lg text-sm font-semibold bg-slate-900 text-gray-300 hover:bg-slate-800 hover:text-white transition-all"><i class="fa-solid fa-fire ml-1.5 text-cyan-400"></i> الرشاقة وحرق الدهون</button>
-            </div>
-        </div>
-    </header>
-
-    <!-- المحتوى الرئيسي للمتجر -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
-        <!-- شريط التحكم والتصفية (Filter & View Bar) -->
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-            <div>
-                <h1 id="current-category-title" class="text-xl sm:text-2xl font-black text-white">تشكيلة المكملات الفاخرة</h1>
-                <p class="text-xs text-gray-400 mt-0.5">مفحوصة مخبرياً بنقاء يصل إلى 99.9% ومضمونة النتائج</p>
-            </div>
-            
-            <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
-                <!-- الفلترة حسب السعر -->
-                <select id="sort-select" onchange="sortProducts(this.value)" class="bg-slate-950 text-xs sm:text-sm text-gray-300 px-3 py-2 rounded-xl border border-slate-700 focus:outline-none focus:border-neonCyan">
-                    <option value="featured">المنتجات المميزة</option>
-                    <option value="price-low">السعر: من الأرخص للأعلى</option>
-                    <option value="price-high">السعر: من الأغلى للأرخص</option>
-                    <option value="rating">الأعلى تقييماً</option>
-                </select>
-
-                <!-- تبديل طريقة العرض -->
-                <div class="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-700">
-                    <button onclick="setViewMode('grid')" id="grid-view-btn" class="p-1.5 rounded-lg bg-slate-800 text-neonCyan transition-all"><i class="fa-solid fa-border-all"></i></button>
-                    <button onclick="setViewMode('list')" id="list-view-btn" class="p-1.5 rounded-lg text-gray-400 hover:text-white transition-all"><i class="fa-solid fa-list"></i></button>
-                </div>
-            </div>
-        </div>
-
-        <!-- شبكة المنتجات -->
-        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- سيتم تعبئة المنتجات تلقائياً عبر JavaScript -->
-        </div>
-    </main>
-
-    <!-- سلة التسوق المنزلقة (Slide-over Cart Drawer) -->
-    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
-        <div class="absolute inset-y-0 left-0 max-w-full flex pr-10">
-            <div class="w-screen max-w-md bg-slate-950 border-r border-slate-800 flex flex-col shadow-2xl transform transition-transform duration-300">
-                
-                <!-- رأس السلة -->
-                <div class="p-6 border-b border-slate-800 flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-bag-shopping text-neonCyan text-xl"></i>
-                        <h2 class="text-lg font-black text-white">سلة التسوق الخاصة بك</h2>
-                    </div>
-                    <button onclick="toggleCart()" class="text-gray-400 hover:text-white p-2 rounded-lg hover:bg-slate-900"><i class="fa-solid fa-xmark text-xl"></i></button>
-                </div>
-
-                <!-- شريط تقدم الشحن المجاني -->
-                <div class="bg-slate-900/80 p-4 border-b border-slate-800">
-                    <div class="flex justify-between text-xs mb-1.5 font-semibold">
-                        <span id="free-shipping-text">أضف 30$ إضافية للحصول على شحن مجاني!</span>
-                        <span id="free-shipping-percent" class="text-neonCyan">50%</span>
-                    </div>
-                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                        <div id="free-shipping-bar" class="bg-gradient-to-r from-cyan-500 to-blue-500 h-full w-1/2 transition-all duration-500"></div>
-                    </div>
-                </div>
-
-                <!-- محتوى المنتجات في السلة -->
-                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
-                    <!-- سيتم تعبئة السلة هنا -->
-                </div>
-
-                <!-- تذييل السلة والمجموع -->
-                <div class="p-6 border-t border-slate-800 bg-slate-900/50 space-y-4">
-                    <!-- حقل الكوبون -->
-                    <div class="flex gap-2">
-                        <input type="text" id="coupon-input" placeholder="كود الخصم (مثال: BIOHACK20)" class="flex-1 bg-slate-900 text-xs px-3 py-2.5 rounded-xl border border-slate-700 text-white uppercase focus:outline-none focus:border-neonCyan">
-                        <button onclick="applyCoupon()" class="bg-slate-800 hover:bg-slate-700 text-neonCyan text-xs font-bold px-4 rounded-xl border border-slate-700 transition
-                            <script>
-                            // دالة البحث الذكي والسلس
+        /* دالة البحث الذكي والسلس */
         function searchProducts() {
             let query = document.getElementById('searchInput').value.toLowerCase();
             let filtered = products.filter(p => p.name.toLowerCase().includes(query));
@@ -197,3 +125,48 @@
                 </div>
             `).join('') : `<p style="text-align:center; grid-column: span 2; color:#888; padding:20px;">عذراً، لا يوجد منتج بهذا الاسم 🔍</p>`;
         }
+
+        function addToCart(id) {
+            let item = cart.find(i => i.id === id);
+            item ? item.qty++ : cart.push({...products.find(p => p.id === id), qty: 1});
+            updateUI();
+        }
+
+        function updateUI() {
+            document.getElementById('cartCount').innerText = cart.reduce((s, i) => s + i.qty, 0);
+            document.getElementById('cartList').innerHTML = cart.map(i => `
+                <li>
+                    <span>${i.name} (x${i.qty})</span>
+                    <span>${(i.price * i.qty).toLocaleString()} ر.ي</span>
+                </li>
+            `).join('');
+            document.getElementById('cartTotal').innerText = cart.reduce((s, i) => s + (i.price * i.qty), 0).toLocaleString();
+        }
+
+        function toggleCart() {
+            let m = document.getElementById('cartModal');
+            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function clearCart() { 
+            cart = []; 
+            updateUI(); 
+        }
+
+        function setLayout(c) { 
+            document.getElementById('productsGrid').className = `grid cols-${c}`; 
+        }
+
+        function sendWA() {
+            if (!cart.length) return alert("السلة فارغة!");
+            let phone = "967700000000"; 
+            let msg = "مرحباً، أرغب في طلب المنتجات التالية:\n\n" + 
+                      cart.map(i => `• ${i.name} (الكمية: ${i.qty})`).join('\n') + 
+                      `\n\n💰 الإجمالي الكلي: ${document.getElementById('cartTotal').innerText} ر.ي`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`);
+        }
+
+        render();
+    </script>
+</body>
+</html>
